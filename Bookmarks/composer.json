@@ -1,0 +1,15 @@
+{
+  "name": "vendor_name/bookmarks",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Louis Jullien Kano",
+      "email": "Louis@krakenlouis.com"
+    }
+  ],
+  "require": {
+    "ext-mysqli": "*"
+  }
+}

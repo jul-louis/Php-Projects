@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Kraken Projects: Mooc & Bookmarks</title>
+    <link rel="stylesheet" href="shared/styles/style.css">
+    <link rel="stylesheet" href="shared/styles/projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <nav id="tma-nav" role="navigation">
+        <div class="toolkit">Kraken Louis</div>
+        <ul class="df aic jcc lg-nav">
+            <li><a  target="_blank" href="Bookmarks/index.php">Bookmarks.</a></li>
+            <li><a  target="_blank" href="CarritonLearning/index.php">Carriton.</a></li>
+        </ul>
+        <ul class="df aic jcc md-nav" id="collection">
+            <li>
+                <a href="#" class="menu-icon">&#8801;</a>
+                <ul>
+                    <li><a  target="_blank">Thanks</a></li>
+                    <li><a  target="_blank" href="Bookmarks/index.php">Bookmarks.</a></li>
+                    <li><a  target="_blank" href="CarritonLearning/index.php">Carriton.</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <br/><br/><br/>
+    <div class="banner std-format">
+        <h1>Php Projects: Bookmarks / Mooc Learning & Management System</h1>
+        <h2>Kraken Louis</h2>
+        <h2>Louis Jullien Kano</h2>
+    </div>
+    <hr/>
+
+    <section class="std-format">
+        <h2>Part 1: Bookmarks.</h2>
+        <a target="_blank" href="Bookmarks/index.php">Direct to Part 1: Bookmarks.</a>
+        <h3>Description</h3>
+        <p>
+            In Part 1, a Bookmark System was created using php and mySQL, and hosted by Heroku service. The requirements for the projects are:
+        </p>
+        <p>
+            1. The web application should have a good thoughtful interface, with menus and/or navigation buttons.
+        </p>
+        <p>2. It should have a name or logo shown across all the pages.</p>
+        <p>
+            3. It should begin with a welcome or greeting message and a list of ten most popular
+            websites that users of the web application have bookmarked.
+        </p>
+        <p>
+            4. Once signed in, a list of bookmarks the user has made should be displayed, and the user can browse
+            any website in the list in a new browser tab or window by clicking a link to the site.
+        </p>
+        <p>
+            5. The user can add new websites to the list and edit and delete any of the existing ones in the list;
+        </p>
+        <p>
+            6. When adding or editing, user input needs to be validated using JavaScript, to make sure the URLs
+            are not only correct but also active.
+        </p>
+        <h3>Analysis &amp; Design</h3>
+        <p>
+            The project is a bookmark system written in Php with applications of MySQL, HTML, CSS, and JavaScript. A
+            consistent visual design is used for the system and the logo/name is displayed in the top-left corner of the
+            window which is provided by the header.php. The functions include login, register, logout, add new bookmarks,
+            edit bookmark name, edit a bookmark's name and url, and delete a bookmark. Popular bookmarks are displayed
+            for all users, but only logged-in user can add/delete/edit/view their own bookmarks.
+        </p>
+        <p>
+            When adding a new bookmark, the form will validate the url and check if the url is alive. The process is
+            conduct in an intermediate page and once the url is checked alive, the window will be redirected to the index page
+            with a successful message. In the intermediate page, there's a button to help you return to index page if a redirection
+            never happens (where the URL is not alive). Please enable the cross-origin resource sharing (a must).
+        </p>
+        <h3>Setup Guide</h3>
+        <p>
+            You can access the website on your localhost as well as by the link provided on the top which is hosted using Heroku.
+            Localhost: please use MySQL compatible XAMPP service.
+            Heroku: Just access it!
+            For Both: Internet connection, CORS Enabled!!
+        </p>
+        <h3>Database Design</h3>
+        <p>
+            Heroku ClearDB was used for the website as the MySQL service.<br/>
+            There are three tables in the DB: users, bookmarks, and bookmark-user for the many-to-many relation.
+            <img src="shared/media/BookmarksERDiagram.png" width="100%" alt="ER Diagram for Bookmarks">
+        </p>
+        <p>SQL for Table Creation:</p>
+        <p>
+            <code class="font2">
+                CREATE TABLE IF NOT EXISTS bookmarks(<br/>
+                bookmark_id int(12) PRIMARY KEY NOT NULL AUTO_INCREMENT, bookmark_url LONGTEXT NOT NULL,<br/>
+                bookmark_count int(10) NOT NULL DEFAULT 1, UNIQUE(bookmark_url));<br/>
+            </code><br/>
+            <code class="font2">
+                CREATE TABLE IF NOT EXISTS users(<br/>
+                user_id int(16) PRIMARY KEY NOT NULL AUTO_INCREMENT, user_uid TINYTEXT NOT NULL, pwd LONGTEXT NOT NULL);<br/>
+            </code><br/>
+            <code class="font2">
+                CREATE TABLE IF NOT EXISTS user_bookmark(<br/>
+                bookmark_id int(12) NOT NULL, user_id int(16) NOT NULL, name LONGTEXT,<br/>
+                FOREIGN KEY (bookmark_id) REFERENCES bookmarks(bookmark_id),<br/>
+                FOREIGN KEY (user_id) REFERENCES users(user_id),<br/>
+                UNIQUE (bookmark_id, user_id));
+            </code>
+        </p>
+        <h3>Statement</h3>
+        <p>
+            You must enable Cross Origin Resource Sharing for your browser to use the adding/editing url function. E.g.,
+            CORS can be easily enabled in the "Develop" drop-down list in the menu bar. For other browsers, you may need to
+            run some code to enable CORS for them. [The functions were tested working on Safari and Chrome.]
+        </p>
+        <p>[Tested] On Safari, disabling CORS restriction is as easy as following the one-step instruction above.</p>
+        <p>[Tested] For Chrome on macOS, first exit Chrome browser and run
+            '<code class="font2">open -a Google\ Chrome --args --disable-web-security --user-data-dir="tmp"</code>' in Terminal to use it with CORS.
+            Quiting will reset the options.</p>
+        <p> See <a target="_blank" href="https://medium.com/swlh/avoiding-cors-errors-on-localhost-in-2020-5a656ed8cefa">this link</a>
+            to know more about how to enable CORS for Safari and Chrome.</p>
+        <p>
+            There's supposed to be an automatic jump when you add a new url in the waiting page. The page gives you the chance
+            to return to the index page by clicking the indicating button for the automatic jump can be failed if the entered url is not valid.
+            The normal processing time is very short and some websites can be validated in more than 5 seconds depending on the servers. If the processing time takes too long,
+            please click the button and there will be a print error message for you to check if your bookmark url is alive.
+        </p>
+        <h3>Acknowledgement</h3>
+        <p>
+            In Part 1, I wrote code for checking if a website is alive using very simple XMLHttpRequest. As my personal decision,
+            I referred a suggestion on Stackoverflow to get the status code without downloading to optimize the process.
+            <a target="_blank" href="https://stackoverflow.com/questions/10926880/using-javascript-to-detect-whether-the-url-exists-before-display-in-iframe">Link</a>
+        </p>
+    </section>
+
+    <section class="std-format">
+        <h2>Part 2: Carriton</h2>
+        <a target="_blank" href="CarritonLearning/index.php">Direct to Part 2: Carriton Learning</a>
+        <h3>Description</h3>
+        <p>
+            Part 2 asks to create a small-scale online learning management system that delivers online courses to users.
+            The requirements are:
+        </p>
+        <p>
+            1. Design a SME-friendly language for marking up educational materials, EML for SME to use.
+        </p>
+        <p>
+            2. Store the EMLs on the server side; a database can help this.
+        </p>
+        <p>
+            3. Design the database tables.
+        </p>
+        <p>
+            4. To deliver the course contents (lessons and quizzes in our context) in an LMS, design a user
+            management module to allow learners to register and get an account in the system, like part 1 of this assignment,
+            and then allow registered learners to login.
+        </p>
+        <p>
+            5. A user who has logged into the system can then view a list of lessons available to select and a list of
+            selected lessons and start or continue to study a selected lesson.
+        </p>
+        <p>
+            6. To present a lesson to a learner, the backend of your LMS will need to navigate through the database to find the right lesson or
+            quiz that the learner has requested, and then retrieve the actual content in EML. For the content to be
+            properly rendered or presented on learner’s browser, parse the content in your EML to HTML.
+        </p>
+        <p>
+            7. A systematic approach must be applied.
+        </p>
+        <h3>Analysis &amp; Design</h3>
+        <p>
+            1. General Design: <br/>a. An index page to introduce what the website is which gives options for users to log in to
+            the system or register a new account before logging in. After the user logged in successfully, there will be a
+            pop-up message to notify them that they can access the learning system now; meanwhile, a new button for accessing
+            the learning system appears at the top nav bar. <br/>b. The Course-List page: available courses will show up in the upper
+            area and registered ones will be displayed on the lower half. Both course list can be scrolled to view all courses.
+            Click the "enroll" button to register new course for your study (The button will be hidden for registered courses).<br/>
+            c. The Course Page: the page can be accessed by clicking the "enter" button under courses in your registered
+            list on the previous page. This page parses the EML and render them into a clear and straightforward notes page
+            for the learners and provides a quiz which can be initialized by clicking the button at the end of notes.
+            Quiz will be graded and correct answers will be provided once you submit the quiz and feedback will be available.
+        </p>
+        <p>
+            2. Database Design:<br/>Heroku ClearDB was used for the website as the MySQL service.<br/>
+            There are three tables created for the system: students, courses, (for the many-to-many relation).
+            <img src="shared/media/CarritonERDiagram.png" width="100%" alt="ER Diagram for Carriton Learning">
+        </p>
+        <p>SQL for Table Creation:</p>
+        <p>
+            <code class="font2">
+                CREATE TABLE IF NOT EXISTS students(<br/>
+                student_id int(10) PRIMARY KEY NOT NULL AUTO_INCREMENT, student_uid VARCHAR(30) NOT NULL, pwd VARCHAR(100) NOT NULL);<br/>
+            </code><br/>
+            <code class="font2">
+                CREATE TABLE IF NOT EXISTS courses(<br/>
+                course_id int(10) PRIMARY KEY NOT NULL AUTO_INCREMENT, <br/>
+                course_name VARCHAR(50) NOT NULL, course_description VARCHAR(2000),<br/>
+                course_cover VARCHAR(500), course_notes TEXT NOT NULL, course_quiz TEXT NOT NULL);<br/>
+            </code><br/>
+            <code class="font2">
+                CREATE TABLE IF NOT EXISTS course_student(<br/>
+                course_id int(10) NOT NULL, student_id int(10) NOT NULL,<br/>
+                FOREIGN KEY (course_id) REFERENCES courses(course_id),<br/>
+                FOREIGN KEY (student_id) REFERENCES students(student_id),<br/>
+                UNIQUE (course_id, student_id) );<br/>
+            </code>
+        </p>
+        <p>
+            3. Data:<br/>Some Important Data frequently appear in the code include:<br/>
+            $_SESSION['ccid']: logged-in student's id, used in SQL queries.<br/>
+            $_SESSION['current-cid']: selected, current course id, used in SQL queries.<br/>
+            $conn: MySQL DB Connection.<br/>
+            etc.
+        </p>
+        <p>
+            4. Education Markup Language Sample<br/>
+            The EML follows XML format without any language declaration.
+            <img src="shared/media/EML_Notes.png" width="100%" alt="ER Diagram for Carriton Learning">
+            For Notes EML, each "notes" tag can have one "subject", one "overview", and multiple "topic".<br/>
+            Each "topic" tag contains one "title" and multiple "subtopic".<br/>
+            Each "subtopic" tag contains one "title" and one "content".<br/>
+            "content" tag includes multiple "entry" for different entries of notes.<br/>
+            <img src="shared/media/EML_Questions.png" width="100%" alt="ER Diagram for Carriton Learning">
+            For Questions EML, each "questions" tag can have one "subject", one "overview", and multiple "question".<br/>
+            Each "question" contains one "type", one "description", one "choices", one "answer" and one "explanation".<br/>
+            A type can have one of the three fixed values: MC, TF, or MA, which stand for multiple choices, ture/false, and multiple answers. <br/>
+            "choices" contains multiple "choice", the different choices for a question.<br/>
+            "answer" has two format:<br/>
+            1. For MC/TF, the answer is the index of correct choice among the choices (starting from 0). Such as &lt;answer&gt;0&lt;/answer&gt; if the first choice is the right answer.<br/>
+            2. For MA, the answer is a multiple of prefix of question id and correct choice id. For example,
+            if it's the second question in the questions EML, and the correct choices are the first one and the fourth one,
+            the answer should be recorded as: &lt;answer&gt;qid1cid0qid1cid3&lt;/answer&gt;.<br/><br/>
+
+            N.B.<br/>
+            If the number of element is specified as One above, it means only the first occurrence of the element will be parsed.
+            Although it is not a syntax error, it's better to only include one that element in its parent element.
+        </p>
+        <p>
+            5. Parser<br/>
+            The parsers for the EMLs are stored in ~/CarritonLearning/server/functions/parser.php file. The parsers are designed in a
+            modular model for better maintainability and readability. The parsers are basically an application of regex match.
+            You can open the file in text editors to find out how I defined the functions.
+        </p>
+        <p>
+            The Parser Functions includes:
+            parseNotesOverview, parseNotesTopics, parseTopicTitle, parseSubtopicTitle, parseAllSubtopics, parseEntries,
+            parseQuizQuestions, parseExplanation, parseCorrectAnswers, parseQuestionDesc, parseQuestionType, and parseQuestionChoices.
+        </p>
+        <h3>Systematic Analysis</h3>
+        <p>
+            <img src="shared/media/Storyboard_SystemLayout_DataFlow.png" width="100%" alt="storyboard, system layout, and data flow chart combined.">
+           * Please note that the graphical UI design may look different from what's submitted as UI was improvement continuously.
+        </p>
+        <h3>Setup Guide</h3>
+        <p>
+            Click any link provides in this document for Part 2 to access the Carriton Learning System. You can access this part
+            by running it on localhost and use the hosted website by accessing the link provided above.
+        </p>
+        <h3>Acknowledgement</h3>
+        <p> The Quiz Grading System is from my TMA 1 and has been updated with new features: give correct and wrong feedback.</p>
+        <p>
+            I used three free images from unsplash.com taken by Kaleidico, AltumCode, and Christopher Gower. The image is free-to-use under the unsplash licence.
+            <a target="_blank" href="https://images.unsplash.com/photo-1569412148958-600837f89a65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3087&q=80">Link 1</a>
+            <a target="_blank" href="https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2925&q=80">Link 2</a>
+            <a target="_blank" href="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80">Link 3</a>
+        </p>
+        <p>
+            I used a free video from videovo.net by Videovo. The video is free-to-use under Videvo Attribution lisence.
+            <a target="_blank" href="https://www.videvo.net/video/pan-of-hand-turning-page-of-book/514510/">Link</a>
+        </p>
+    </section>
+
+    <hr/>
+
+    <div class="banner std-format">
+        <h2>References</h2>
+        <p>
+            Image Credit: Free Image by Kaleidico used in Part Two, courses.php.
+            <a target="_blank" href="https://images.unsplash.com/photo-1532622785990-d2c36a76f5a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80">link</a>
+        </p>
+        <p>
+            Image Credit: Free Image by AltumCode used in Part Two, courses.php.
+            <a target="_blank" href="https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2925&q=80">link</a>
+        </p>
+        <p>
+            Image Credit: Free Image by Christopher Gower used in Part Two, courses.php.
+            <a target="_blank" href="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80">link</a>
+        </p>
+        <p>
+            Video Credit: Free Video Sample by Videovo in Part Two, index.php.
+            <a target="_blank" href="https://www.videvo.net/video/pan-of-hand-turning-page-of-book/514510/">link</a>
+        </p>
+        <p>Get XHR Status Code without Downloading: <a target="_blank" href="https://stackoverflow.com/questions/10926880/using-javascript-to-detect-whether-the-url-exists-before-display-in-iframe">Stack Overflow</a></p>
+    </div>
+    <br/>
+
+</header>
+
+</body>
+</html>

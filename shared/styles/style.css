@@ -1,0 +1,546 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prata', serif;
+}
+::selection {
+    background-color: red;
+    color: white;
+}
+body {
+    background: #FFF8F0;
+    height: 100vh;
+    position: relative;
+}
+footer {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem;
+    font-family: 'Libre Franklin', sans-serif;
+    position: fixed;
+    bottom: 2px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    font-size: 1.6rem;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #1F1A1F;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #1F1A1F;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #1F1A1F;
+}
+input {
+    border-radius: 10px;
+
+}
+hr {
+    border-color: red;
+    background-color: red;
+    width: 74%;
+    margin: 20px auto;
+}
+.hrw {
+    border-color: white;
+    background-color: white;
+    width: 74%;
+    margin: 20px auto;
+}
+.hrb {
+    border-color: #574957;
+    background-color: #574957;
+    width: 74%;
+    margin: 20px auto;
+}
+.disc {
+    list-style: disc;
+    display:list-item;
+    margin: 10px 20px;
+    font-size: 20px;
+    text-align: justify;
+}
+.numerical {
+    list-style: lower-roman inside;
+    display: list-item;
+}
+.answer {
+    background-color: #1F1A1F;
+    color: white;
+    margin-bottom: 10px;
+    padding: 0;
+    border-radius: 8px;
+}
+label {
+    font-size: 20px;
+}
+button {
+    background: transparent;
+}
+button:hover {
+    cursor: pointer;
+}
+#bm-nav {
+    background: black;
+    color: white;
+    width: 100%;
+}
+#bm-nav-fixed {
+    background: black;
+    color: white;
+    width: 100%;
+    position: fixed;
+    border-bottom: 2px white solid;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+.df {
+    display: flex;
+}
+.aic {
+    align-items: center;
+}
+.jcse {
+    justify-content: space-evenly;
+}
+.jcsb {
+    justify-content: space-between;
+}
+.jcc {
+    justify-content: center;
+}
+.fdcr {
+    flex-direction: column-reverse;
+}
+.fdc {
+    flex-direction: column;
+}
+#toggle-box {
+    margin: 2rem;
+}
+#toggle-text-mode {
+    margin-top: 1rem;
+}
+.info {
+    text-align: center;
+}
+.margin {
+    margin: 0 10px;
+}
+.reg-form {
+    margin: auto;
+    height: 300px;
+}
+.icon {
+    padding: 6px 10px;
+    font-size: 2.8rem;
+}
+.welcome-content {
+
+}
+.slogan {
+    font-size: 3rem;
+    font-style: italic;
+    margin: 2rem;
+    text-align: center;
+}
+.log-status {
+    position: fixed;
+    top: 14px;
+    right: 0;
+    color: white;
+    margin: 10px;
+    font-style: italic;
+    font-size: 1.4rem;
+}
+.login {
+    margin-top: 20px;
+}
+.logout {
+    position: absolute;
+    top: 4px;
+    right: 20px;
+    z-index: 101;
+}
+.to-course {
+    position: absolute;
+    top: 4px;
+    right: 150px;
+    z-index: 111;
+}
+.login-trigger {
+    position: fixed;
+    top: 4px;
+}
+.btn{
+    color: black;
+    padding: 10px 20px;
+    margin:10px 2px;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    border: 2px solid black;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    text-transform: capitalize;
+    /*box-sizing: border-box;*/
+    position: relative;
+    z-index:10;
+}
+.btn::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*width: 100%;*/
+    height: 100%;
+    z-index: -1;
+    background: black border-box;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    opacity: 0;
+    transition: all .2s
+}
+.btn:hover{
+    color:white;
+    background-color: black;
+}
+.btn:hover::before{
+    opacity: 1;
+    background-color: black;
+    -webkit-transform: scaleX(80);
+    transform: scaleX(80);
+    transition: -webkit-transform, opacity 0.4s;
+    transition: transform, opacity 0.4s
+}
+.btn-w{
+    color: white;
+    padding: 10px 20px;
+    margin:10px 2px;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    border: 2px solid white;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    text-transform: capitalize;
+    /*box-sizing: border-box;*/
+    position: relative;
+    z-index:10;
+}
+.btn-w::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*width: 100%;*/
+    height: 100%;
+    z-index: -1;
+    background: white border-box;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    opacity: 0;
+    transition: all .2s
+}
+.btn-w:hover{
+    color:black;
+    background-color: white;
+}
+.btn-w:hover::before{
+    opacity: 1;
+    background-color: white;
+    -webkit-transform: scaleX(80);
+    transform: scaleX(80);
+    transition: -webkit-transform, opacity 0.4s;
+    transition: transform, opacity 0.4s
+}
+.course-link {
+    width: 300px;
+    border: none;
+    padding: 20px 40px;
+}
+.text-in {
+    padding: 10px 20px;
+    margin: 0 20px 0 0;
+}
+.bookmarks {
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: white;
+    width: 95%;
+    height: auto;
+    min-height: 140px;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+.inv-color {
+    /*border-color: white;*/
+    background: black;
+    color: white;
+}
+.bm-wrapper {
+    flex-direction: column;
+}
+.error_msg {
+    color: red;
+}
+a.success_msg {
+    color: #68A350;
+}
+a.p-link {
+    color: black;
+}
+.m-link {
+    color: white;
+}
+.link-box {
+    width: 100%;
+}
+.p-link:hover, .m-link:hover {
+    color: red;
+}
+.ori {
+    font-size: 1.4rem;
+}
+.fr {
+    float: right;
+    margin: 0 10px;
+}
+.fr a {
+    color: white;
+    text-decoration: none;
+}
+.fr a:hover {
+    color: red;
+}
+/* Modified Toggle Style: Reference: W3C https://www.w3schools.com/howto/howto_css_switch.asp */
+/* The switch - the box around the slider */
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 38px;
+}
+
+/* Hide default HTML checkbox */
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FFFCFC;
+    border: 2px solid #1F1A1F;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #1F1A1F;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #574957;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #574957;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(42px);
+    -ms-transform: translateX(42px);
+    transform: translateX(42px);
+    background-color: #FFF0F1;
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+.black-theme {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+    float: right;
+    color: white;
+    padding: 40px 20px;
+    border: 2px solid white;
+    width: 400px;
+    margin: 6px;
+}
+.auto-margin-input {
+    margin: 10px auto;
+}
+.form-box {
+    position: fixed;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, 0);
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.3s, opacity 0.3s;
+}
+.form-box-corner {
+    position: fixed;
+    right: 0;
+    bottom: 25%;
+    transform: translate(0, 100%);
+}
+.intro {
+    height: 80vh;
+    color: white;
+}
+.tac {
+    text-align: center;
+}
+.icon a:link {
+    text-decoration: none;
+    color: white;
+}
+.icon a:visited {
+    text-decoration: none;
+    color: white;
+}
+.courses-wrapper {
+    width: 100%;
+    overflow: scroll;
+    margin: 0 auto;
+    padding: 0 40px;
+    /*justify-content: center;*/
+}
+#course-list-wrapper-black {
+    background: black;
+    color: white;
+}
+#bgv {
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    filter: grayscale(1) blur(0);
+    min-width: 100vw;
+    min-height: 100vh;
+    max-width: 110vw;
+    max-height: 110vh;
+}
+#course-nav {
+    position: fixed;
+    height: 100vh;
+    overflow: scroll;
+    width: 295px;
+    top:0;
+    right:0;
+    background-color: rgba(0,0,0,0.92);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s;
+}
+#tc-form {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s;
+}
+.choices {
+    padding: 15px;
+    background-color: #574957;
+    color: white;
+}
+.font2 {
+    font-family: 'Libre Franklin', sans-serif;
+}
+.choices:hover {
+    background-color: #1F1A1F;
+}
+.content {
+    width: 100%;
+    padding: 10px 40px;
+}
+.cnav-content {
+    color: white;
+}
+@media screen and (max-width: 960px) and (min-width: 621px) {
+    .login {
+        flex-direction: column;
+    }
+    .reg-form {
+        flex-direction: column;
+    }
+    .reg-form input {
+        margin: 10px auto;
+    }
+    .pad input {
+        margin: 10px auto;
+    }
+    .content {
+        padding: 10px 28px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .login {
+        flex-direction: column;
+    }
+    .login-form {
+        flex-direction: column;
+    }
+    .login-form input {
+        margin: 10px auto;
+    }
+    .reg-form {
+        flex-direction: column;
+    }
+    .reg-form input {
+        margin: 10px auto;
+    }
+    .pad input {
+        margin: 10px auto;
+    }
+    .content {
+        width: 100%;
+        padding: 10px 18px;
+    }
+}

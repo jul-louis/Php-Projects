@@ -1,0 +1,14 @@
+{
+  "name": "projects",
+  "description": "Mooc Learning & Management System & Bookmarks",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Louis Jul. Kano",
+      "email": "louis@krakenlouis.com"
+    }
+  ],
+  "require": {
+  }
+}
