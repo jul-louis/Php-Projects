@@ -8,7 +8,7 @@
 </style>
 
     <main>
-        <footer>2022 &copy;&nbsp;LOUxIE All Right Reserved</footer>
+        <footer>2022 &copy;&nbsp;KrakenLouis All Right Reserved</footer>
         <video autoplay muted loop playsinline id="bgv">
             <source src="../shared/media/video.mp4" type="video/mp4">
         </video>
