@@ -1,6 +1,10 @@
 # Php-Projects
 Php Projects by Louis Jul. Kano
 
+## Instruction to Run
+
+As Heroku cancelled the free-tier membership, the website is no longer available. But you can download the repo and run it locally.
+
 ## Mooc Learning: Introduction
 
 
